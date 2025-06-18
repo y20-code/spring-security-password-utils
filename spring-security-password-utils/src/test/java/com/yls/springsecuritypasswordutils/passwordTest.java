@@ -24,12 +24,15 @@ public class passwordTest {
         user.setUsername("testuser");
         user.setId("1");
 
+        //使用 encode 生成加密密码，赋值给 encode。
         String encode = passwordEncoder.encode(rawPassword);
 
         System.out.println(encode);
         System.out.println(rawPassword);
 
         //现在对加密密码进行配对
+        //用 matches 验证正确密码和错误密码。
+        //默认相等返回ture，
         if(passwordEncoder.matches(rawPassword,encode)){
             System.out.println("密码一致");
         };
