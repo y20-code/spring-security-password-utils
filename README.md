@@ -4,14 +4,14 @@
 ## spring-security-password-utils
 一个加密技术
 ### 1.先添加security到pom.xml文件
-```
+```xml
 <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 ```
 ### 2.配置一个密码编码器
-```
+```java
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -20,7 +20,7 @@
 ### 3.创建一个实体类 
 代码省略，不会可以参考User
 ### 4.测试
-```
+```java
 @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
@@ -51,7 +51,7 @@
 ## spring-boot-starter-validation
 接口的参数合法校验和全局异常处理
 ### 1.先导入validation、web到pom.xml文件
-```
+```xml
 //作用是参数合法校验
 <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,8 +70,18 @@
   ```java
   @NotNull(message = "用户名不能为空")
   private String a;
+  ```
+
+#### 2.2 `@NotEmpty`
+- **作用**: 确保字段或参数不为 `null`。
+- **示例**:
+  ```java
+  @NotNull(message = "用户名不能为空")
+  private String a;
 
 ```
+
+```java
 package com.yls.springbootstartervalidation.pojo;
 
 import jakarta.validation.constraints.*;
@@ -116,5 +126,5 @@ public class User {
     private boolean k;
 
 }
-```
+
 
